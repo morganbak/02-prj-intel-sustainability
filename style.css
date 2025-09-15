@@ -1,1 +1,112 @@
 /* Add your CSS here */
+/* ===== Header Styling ===== */
+header {
+  background: linear-gradient(90deg, #004080, #0071c5); /* Intel-like blue gradient */
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+  border-bottom: 4px solid #e6e6e6; /* subtle separation */
+}
+
+/* Logo */
+header img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* Main Heading */
+header h1 {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Subheading */
+header p {
+  max-width: 700px;
+  margin: 0.5rem auto 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #f0f8ff; /* softer white for readability */
+}
+
+
+
+/* ===== Timeline Section ===== */
+.timeline {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  overflow-x: auto; /* Horizontal scroll on large screens */
+  padding: 2rem 1rem;
+  scroll-snap-type: x mandatory; /* Smooth snapping */
+}
+
+.timeline::-webkit-scrollbar {
+  height: 8px;
+}
+.timeline::-webkit-scrollbar-thumb {
+  background: #0071c5;
+  border-radius: 4px;
+}
+.timeline::-webkit-scrollbar-track {
+  background: #e6e6e6;
+}
+
+/* Timeline Cards */
+.timeline-card {
+  flex: 0 0 280px; /* Fixed width for horizontal scroll */
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-card h2 {
+  font-size: 1.2rem;
+  color: #004080;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-card h3 {
+  font-size: 1rem;
+  color: #0071c5;
+  margin-bottom: 0.75rem;
+}
+
+.timeline-card p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+  max-height: 3.8em; /* truncate by default */
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+/* Hover effect */
+.timeline-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.timeline-card:hover p {
+  max-height: 100vh; /* expand to reveal full text */
+}
+
+/* ===== Responsive Layout ===== */
+@media (max-width: 768px) {
+  .timeline {
+    flex-direction: column; /* Stack vertically */
+    overflow-x: hidden;
+  }
+
+  .timeline-card {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+}
